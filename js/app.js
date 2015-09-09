@@ -19,6 +19,10 @@ var colorSelected = $('.selected').css('background-color');
 var canvas       = $('canvas')[0]; //Es igual que hacer document.getElementByTagName('canvas')[0]
 var context = canvas.getContext('2d');
 
+var $canvas = $('canvas');
+var lastEvent;
+var mouseDown = false;
+
 /*
 	FUNCTIONS
 */
@@ -66,7 +70,21 @@ $addColor.on('click', function () {
 
 //On mouse events on the canvas
 	//Draw lines
-
+$canvas.on('mousedown', function (e) {
+	lastEvent = e; // Información del evento que se ha lanzado
+	mouseDown = true;
+}).on('mousemove', function (e) {
+	if (mouseDown) {
+		context.beginPath();
+		context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
+		context.lineTo(e.offsetX, e.offsetY);
+		context.strokeStyle = colorSelected;
+		context.stroke();	
+		lastEvent = e;
+	}
+}).on('mouseup mouseleave', function () {
+	mouseDown = false;
+});
 
 /*context.beginPath();
 context.moveTo(10, 10);
