@@ -6,22 +6,22 @@
 /*
 	VARIABLES
 */
-var $colors       = $('.controls');
-var $newColor     = $('#revealColorSelect');
-var $sliders      = $('input[type="range"]');
-var $slideRed     = $('#red');
-var $slideGreen   = $('#green');
-var $slideBlue    = $('#blue');
-var $spanColor    = $('#newColor');
-var $addColor     = $('#addNewColor');
-var colorSelected = $('.selected').css('background-color');
-
-var canvas       = $('canvas')[0]; //Es igual que hacer document.getElementByTagName('canvas')[0]
-var context = canvas.getContext('2d');
-
-var $canvas = $('canvas');
-var lastEvent;
-var mouseDown = false;
+var $colors       = $('.controls'),
+	$newColor     = $('#revealColorSelect'),
+	$sliders      = $('input[type="range"]'),
+	$slideRed     = $('#red'),
+	$slideGreen   = $('#green'),
+	$slideBlue    = $('#blue'),
+	$spanColor    = $('#newColor'),
+	$addColor     = $('#addNewColor'),
+	colorSelected = $('.selected').css('background-color'),
+	
+	canvas        = $('canvas')[0], //Es igual que hacer document.getElementByTagName('canvas')[0]
+	context       = canvas.getContext('2d'),
+	
+	$canvas       = $('canvas'),
+	lastEvent,
+	mouseDown     = false;
 
 /*
 	FUNCTIONS
